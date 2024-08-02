@@ -2,26 +2,33 @@
 
 .navbar {
     background-color: $primary-color !important;
-    position: sticky;
+    position: absolute;
     top: 0;
-    height: 3rem;
+    width: 100vw;
+    padding: 0.2rem 2rem;
 }
 
-.navbar * {
+.nav-link {
     color: $secondary-color;
 }
 
-.user {
-    cursor: pointer;
+.nav-item {
+    justify-content: flex-end;
 }
 
-.user:after {
-    content: '';
-    position: absolute;
-    background-image: url('../../../assets/icons/user-2.png');
-    background-size: cover;
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-left: 0.5rem;
-    // right: 0;
+.nav-item .active {
+    color: $secondary-color;
+    border-bottom: 1px solid $secondary-color;
+    width: max-content;
 }
+
+// .user:after {
+//     content: '';
+//     position: absolute;
+//     background-image: url('../../../assets/icons/user-2.png');
+//     background-size: cover;
+//     height: 2rem;
+//     width: 2rem;
+//     margin-left: 0.5rem;
+//     // right: 0;
+// }

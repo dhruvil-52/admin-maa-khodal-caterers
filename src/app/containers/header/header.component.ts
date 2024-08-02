@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   user = {
     name: 'Dhruvil'
   }
+  isCollapsed = false;
   constructor() { }
 
   ngOnInit(): void {
