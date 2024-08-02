@@ -1,13 +1,14 @@
 <div class="login-container">
   <form>
     <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+      <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input
             type="email"
             class="form-control"
             id="exampleInputEmail1"
+            name="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter email"
             [(ngModel)]="user.email"
@@ -16,13 +17,14 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+      <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input
             type="password"
             class="form-control"
             id="exampleInputPassword1"
+            name="exampleInputPassword1"
             placeholder="Password"
             [(ngModel)]="user.password"
           />
@@ -30,7 +32,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-24 right-align">
+      <div
+        class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24 right-align"
+      >
         <button type="submit" class="btn btn-primary" (click)="login()">
           Submit
         </button>
