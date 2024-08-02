@@ -1,1 +1,122 @@
-<p>home works!</p>
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="name"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+            [(ngModel)]="userDetails.name"
+            name="name"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            placeholder="Enter Full Name"
+            [(ngModel)]="userDetails.fullName"
+            name="fullName"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mobile"
+            placeholder="Enter Primary Mobile"
+            [(ngModel)]="userDetails.mobile"
+            name="fullName"
+          />
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="mobile2">.</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mobile2"
+            placeholder="Enter Secondary Mobile"
+            [(ngModel)]="userDetails.mobile2"
+            name="fullName"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            [(ngModel)]="userDetails.email"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            class="form-control"
+            id="address"
+            placeholder="Enter Address"
+            [(ngModel)]="userDetails.address"
+            name="address"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="lat">Lat</label>
+          <input
+            type="number"
+            class="form-control"
+            id="lat"
+            placeholder="Enter Lat"
+            [(ngModel)]="userDetails.lat"
+            name="lat"
+          />
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="lng">Lng</label>
+          <input
+            type="number"
+            class="form-control"
+            id="lng"
+            placeholder="Enter lng"
+            [(ngModel)]="userDetails.lng"
+            name="lng"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

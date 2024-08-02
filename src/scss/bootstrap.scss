@@ -1,0 +1,25 @@
+@import './variables';
+
+$primary: $primary-color;
+
+$grid-columns: 24;
+$grid-gutter-width: 20px;
+@import "~bootstrap/scss/bootstrap";
+
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        flex: 0 0 percentage(($i / $grid-columns));
+        max-width: percentage(($i / $grid-columns));
+    }
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+
+.form-group label {
+    margin-bottom: 0.2rem;
+}
