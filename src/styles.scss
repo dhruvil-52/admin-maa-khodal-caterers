@@ -18,3 +18,19 @@ html {
 .right-align {
     text-align: right;
 }
+
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        color: $primary-color;
+        padding: 1rem 0;
+        text-transform: uppercase;
+    }
+
+    button {
+        height: 2.5rem;
+    }
+}

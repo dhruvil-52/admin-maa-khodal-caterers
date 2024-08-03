@@ -2,6 +2,13 @@
   <form>
     <div class="row">
       <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="pageHeader">
+          <h1>Edit details</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
         <p-accordion [multiple]="true">
           <p-accordionTab header="Personal Details">
             <div class="row">
@@ -45,7 +52,7 @@
                     id="mobile"
                     placeholder="Enter Primary Mobile"
                     [(ngModel)]="userDetails.mobile"
-                    name="fullName"
+                    name="mobile"
                   />
                 </div>
               </div>
@@ -58,7 +65,7 @@
                     id="mobile2"
                     placeholder="Enter Secondary Mobile"
                     [(ngModel)]="userDetails.mobile2"
-                    name="fullName"
+                    name="mobile2"
                   />
                 </div>
               </div>

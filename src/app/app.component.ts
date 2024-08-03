@@ -17,9 +17,7 @@ export class AppComponent implements OnInit {
 
   checkLoginStatus() {
     const token = localStorage.getItem('authToken');
-    if (token) {
-      this.router.navigate(['/home']);
-    } else {
+    if (!token) {
       this.router.navigate(['/login']);
     }
   }

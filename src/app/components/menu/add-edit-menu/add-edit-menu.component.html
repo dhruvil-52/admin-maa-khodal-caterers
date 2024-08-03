@@ -1,0 +1,159 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="pageHeader">
+          <h1>{{ id ? "Edit Menu" : "Add Menu" }}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+            [(ngModel)]="menuDetails.name"
+            name="name"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-24 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mobile"
+            placeholder="Enter Primary Mobile"
+            [(ngModel)]="menuDetails.mobile"
+            name="fullName"
+          />
+        </div>
+      </div>
+      <div class="col-sm-24 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="mobile2">.</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mobile2"
+            placeholder="Enter Secondary Mobile"
+            [(ngModel)]="menuDetails.mobile2"
+            name="fullName"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            class="form-control"
+            id="address"
+            placeholder="Enter Address"
+            [(ngModel)]="menuDetails.address"
+            name="address"
+            rows="2"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngFor="let menu of menuDetails.menu; let i = index">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <hr />
+
+        <div class="row right-align">
+          <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-primary mr-2"
+              (click)="removeMenu(i)"
+              *ngIf="menuDetails.menu.length !== 1"
+            >
+              <i class="bi bi-dash"></i>
+            </button>
+            <button
+              type="submit"
+              class="btn btn-sm btn-outline-primary"
+              (click)="addMenu()"
+            >
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="date{{ i }}">Date</label>
+              <input
+                type="text"
+                class="form-control"
+                id="date"
+                placeholder="Enter Primary Mobile"
+                [(ngModel)]="menu.date"
+                name="date"
+              />
+            </div>
+          </div>
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="time{{ i }}">Time</label>
+              <input
+                type="text"
+                class="form-control"
+                id="time{{ i }}"
+                placeholder="Enter Time"
+                [(ngModel)]="menu.time"
+                name="time{{ i }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="price{{ i }}">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price{{ i }}"
+                placeholder="Enter Price"
+                [(ngModel)]="menu.price"
+                name="price{{ i }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-24 col-md-24 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="form-group">
+              <div class="p-fluid">
+                <div class="flex flex-column gap-2">
+                  <label for="item{{ i }}">Items</label>
+                  <p-chips
+                    [(ngModel)]="menu.items"
+                    id="item{{ i }}"
+                    name="item{{ i }}"
+                  ></p-chips>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
