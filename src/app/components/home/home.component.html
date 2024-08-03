@@ -2,121 +2,312 @@
   <form>
     <div class="row">
       <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="name"
-            class="form-control"
-            id="name"
-            placeholder="Enter Name"
-            [(ngModel)]="userDetails.name"
-            name="name"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
-        <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fullName"
-            placeholder="Enter Full Name"
-            [(ngModel)]="userDetails.fullName"
-            name="fullName"
-          />
-        </div>
+        <p-accordion [multiple]="true">
+          <p-accordionTab header="Personal Details">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter Name"
+                    [(ngModel)]="userDetails.name"
+                    name="name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <label for="fullName">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="Enter Full Name"
+                    [(ngModel)]="userDetails.fullName"
+                    name="fullName"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="form-group">
+                  <label for="mobile">Mobile</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="mobile"
+                    placeholder="Enter Primary Mobile"
+                    [(ngModel)]="userDetails.mobile"
+                    name="fullName"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="form-group">
+                  <label for="mobile2">.</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="mobile2"
+                    placeholder="Enter Secondary Mobile"
+                    [(ngModel)]="userDetails.mobile2"
+                    name="fullName"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email"
+                    [(ngModel)]="userDetails.email"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <textarea
+                    class="form-control"
+                    id="address"
+                    placeholder="Enter Address"
+                    [(ngModel)]="userDetails.address"
+                    name="address"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="form-group">
+                  <label for="lat">Lat</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="lat"
+                    placeholder="Enter Lat"
+                    [(ngModel)]="userDetails.lat"
+                    name="lat"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="form-group">
+                  <label for="lng">Lng</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="lng"
+                    placeholder="Enter lng"
+                    [(ngModel)]="userDetails.lng"
+                    name="lng"
+                  />
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+
+          <p-accordionTab header="Social Media">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="facebook"
+                    placeholder="Facebook"
+                    [(ngModel)]="userDetails.facebook"
+                    name="facebook"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="instagram"
+                    placeholder="Instagram"
+                    [(ngModel)]="userDetails.instagram"
+                    name="instagram"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="twitter"
+                    placeholder="Twitter"
+                    [(ngModel)]="userDetails.twitter"
+                    name="twitter"
+                  />
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+
+          <p-accordionTab header="Categories" [selected]="true">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <div class="card p-fluid">
+                    <p-chips
+                      [(ngModel)]="categories"
+                      id="categories"
+                      name="categories"
+                      placeholder="Categories"
+                      (onAdd)="onChipAdd($event)"
+                      (onRemove)="onChipRemove($event)"
+                    ></p-chips>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-container *ngIf="userDetails.categories.length">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngFor="let category of userDetails.categories">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <div class="p-fluid">
+                    <div class="flex flex-column gap-2">
+                      <label for="{{ category.name }}">{{
+                        category.name
+                      }}</label>
+                      <p-chips
+                        [(ngModel)]="category.items"
+                        id="{{ category.name }}"
+                        name="{{ category.name }}"
+                      ></p-chips>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+
+          <p-accordionTab header="Services">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <div class="card p-fluid">
+                    <p-chips
+                      [(ngModel)]="userDetails.services"
+                      id="services"
+                      name="services"
+                    ></p-chips>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+
+          <p-accordionTab header="Home Page Details">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <div class="card p-fluid">
+                    <p-editor
+                      [(ngModel)]="userDetails.homePageDetails"
+                      [style]="{ height: '320px' }"
+                      id="homeDetails"
+                      name="homeDetails"
+                    ></p-editor>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+
+          <p-accordionTab header="About Us">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+                <div class="form-group">
+                  <div class="card p-fluid">
+                    <p-editor
+                      [(ngModel)]="userDetails.aboutUs"
+                      [style]="{ height: '320px' }"
+                      id="aboutUs"
+                      name="aboutUs"
+                    ></p-editor>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+
+          <p-accordionTab header="Vision & Mission">
+            <div class="row">
+              <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="form-group">
+                  <div class="card p-fluid">
+                    <p-editor
+                      [(ngModel)]="userDetails.vision"
+                      [style]="{ height: '320px' }"
+                      id="vision"
+                      name="vision"
+                    ></p-editor>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="form-group">
+                  <div class="card p-fluid">
+                    <p-editor
+                      [(ngModel)]="userDetails.mission"
+                      [style]="{ height: '320px' }"
+                      id="mission"
+                      name="mission"
+                    ></p-editor>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-accordionTab>
+        </p-accordion>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-        <div class="form-group">
-          <label for="mobile">Mobile</label>
-          <input
-            type="number"
-            class="form-control"
-            id="mobile"
-            placeholder="Enter Primary Mobile"
-            [(ngModel)]="userDetails.mobile"
-            name="fullName"
-          />
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-        <div class="form-group">
-          <label for="mobile2">.</label>
-          <input
-            type="number"
-            class="form-control"
-            id="mobile2"
-            placeholder="Enter Secondary Mobile"
-            [(ngModel)]="userDetails.mobile2"
-            name="fullName"
-          />
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
+    <div class="row right-align">
       <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            placeholder="Enter email"
-            [(ngModel)]="userDetails.email"
-          />
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
-        <div class="form-group">
-          <label for="address">Address</label>
-          <textarea
-            class="form-control"
-            id="address"
-            placeholder="Enter Address"
-            [(ngModel)]="userDetails.address"
-            name="address"
-            rows="3"
-          ></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-        <div class="form-group">
-          <label for="lat">Lat</label>
-          <input
-            type="number"
-            class="form-control"
-            id="lat"
-            placeholder="Enter Lat"
-            [(ngModel)]="userDetails.lat"
-            name="lat"
-          />
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-        <div class="form-group">
-          <label for="lng">Lng</label>
-          <input
-            type="number"
-            class="form-control"
-            id="lng"
-            placeholder="Enter lng"
-            [(ngModel)]="userDetails.lng"
-            name="lng"
-          />
-        </div>
+        <button
+          type="submit"
+          class="btn btn-outline-primary mr-2"
+          (click)="submitDetails()"
+        >
+          Save
+        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="reset()">
+          Reset
+        </button>
       </div>
     </div>
   </form>

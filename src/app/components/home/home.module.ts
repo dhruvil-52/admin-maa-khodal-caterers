@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { FormsModule } from '@angular/forms';
-
+import { ChipsModule } from 'primeng/chips';
+import { AccordionModule } from 'primeng/accordion';
+import { EditorModule } from 'primeng/editor';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    FormsModule
+    FormsModule,
+    ChipsModule,
+    AccordionModule,
+    EditorModule
   ]
 })
 export class HomeModule { }
