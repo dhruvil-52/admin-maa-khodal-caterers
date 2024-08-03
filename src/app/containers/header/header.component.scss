@@ -2,9 +2,8 @@
 
 .navbar {
     background-color: $primary-color !important;
-    position: absolute;
+    position: sticky;
     top: 0;
-    width: 100vw;
     padding: 0.2rem 2rem;
 }
 
