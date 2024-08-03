@@ -1,4 +1,6 @@
 @import './scss/main';
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
 
 html {
     font-family: "Open Sans", sans-serif;
