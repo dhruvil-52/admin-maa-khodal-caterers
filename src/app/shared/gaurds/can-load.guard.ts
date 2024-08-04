@@ -20,7 +20,6 @@ export class CanLoadGuard implements CanActivate, CanLoad {
     const token = localStorage.getItem('authToken');
 
     if (!token) {
-      console.log("here")
       this.router.navigate(['/login']);
       return false
     } else {
