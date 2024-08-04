@@ -20,7 +20,9 @@ export class EnquiryComponent implements OnInit {
       {
         id: '1',
         name: 'Bamboo Watch',
-        description: 'Product Description',
+        mobile: 8460733333,
+        email: 'dhruvil@gmail.com',
+        message: 'This is a long piece of text that should wrap into multiple lines within the container. The container has a maximum width set, so the text will wrap when it reaches that width',
       },
       {
         id: '2',

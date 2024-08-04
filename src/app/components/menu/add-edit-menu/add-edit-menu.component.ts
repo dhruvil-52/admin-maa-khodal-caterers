@@ -66,7 +66,7 @@ export class AddEditMenuComponent implements OnInit {
       ],
       "data": {
         "name": "dhruvil sanjaybhai talaviya",
-        "mobile": 8460723353,
+        "mobile": 8460733333,
         "address": "E-401 Shreeji Sankalp Flat,Opp meghmalhar flat,amar jawan circle ,nikol ,ahmedabad",
         "mobile2": 8460723333
       }

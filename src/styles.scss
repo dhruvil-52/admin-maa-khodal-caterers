@@ -34,3 +34,9 @@ html {
         height: 2.5rem;
     }
 }
+
+.text-container {
+    max-width: 20rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
