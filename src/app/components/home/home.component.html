@@ -193,6 +193,8 @@
                       (onAdd)="onChipAdd($event)"
                       (onRemove)="onChipRemove($event)"
                       separator=","
+                      [addOnBlur]="true"
+                      focusReenter
                     ></p-chips>
                   </div>
                 </div>
@@ -215,6 +217,8 @@
                         id="{{ category.name }}"
                         name="{{ category.name }}"
                         separator=","
+                        [addOnBlur]="true"
+                        focusReenter
                       ></p-chips>
                     </div>
                   </div>
@@ -234,6 +238,7 @@
                       name="services"
                       separator=","
                       [addOnBlur]="true"
+                      focusReenter
                     ></p-chips>
                   </div>
                 </div>
