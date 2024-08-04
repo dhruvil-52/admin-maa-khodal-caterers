@@ -12,7 +12,7 @@ class menu {
   styleUrls: ['./add-edit-menu.component.scss']
 })
 export class AddEditMenuComponent implements OnInit {
-  menuDetails: any = { menu: [new menu()] };
+  menuDetails: any = { data: {}, menu: [new menu()] };
   id: number;
 
   constructor(private route: ActivatedRoute,

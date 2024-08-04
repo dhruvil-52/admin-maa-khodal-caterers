@@ -93,7 +93,7 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
             <div class="form-group">
               <div class="p-fluid">
                 <div class="flex flex-column gap-2">
@@ -110,6 +110,20 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="noOfDish{{ i }}">No of Dishes</label>
+              <input
+                type="number"
+                class="form-control"
+                id="noOfDish{{ i }}"
+                placeholder="Enter No of Dishes"
+                [(ngModel)]="menu.noOfDish"
+                name="noOfDish{{ i }}"
+              />
             </div>
           </div>
         </div>
