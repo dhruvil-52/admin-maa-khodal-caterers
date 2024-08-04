@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PdfmakeService } from 'src/app/shared/pdfmake.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  selectedItem: any = {};
+  showDeleteModal: boolean = false;
+  actions: any = [];
   nodes = [
     {
       data: { id: 41, name: "Phillipp O'Neill", date: 1698674483000, isMainMenu: true },
@@ -28,8 +32,6 @@ export class MenuComponent implements OnInit {
       ]
     }
   ];
-
-  actions: any = [];
 
   openMenu(rowData: any) {
     console.log(rowData)
@@ -77,13 +79,23 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  selectedItem: any = {};
-  showDeleteModal: boolean = false;
-  isMainRow(rowNode: any): boolean {
-    return !!rowNode.node.children; // Main rows don't have a parent
+  filter: any = {};
+  first: number = 0;
+
+  rows: number = 10;
+
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
   }
 
-  constructor(private router: Router) { }
+  isMainRow(rowNode: any): boolean {
+    return !!rowNode.node.children;
+  }
+
+  constructor(
+    private router: Router,
+    private pdfService: PdfmakeService) { }
 
   ngOnInit(): void {
     this.getMenus();
@@ -105,6 +117,7 @@ export class MenuComponent implements OnInit {
 
   printMenu() {
     console.log(this.selectedItem);
+    this.pdfService.generatePdf();
   }
 
   makeBillFromMenu() {

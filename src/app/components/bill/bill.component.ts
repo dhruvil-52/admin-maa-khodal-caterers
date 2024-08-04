@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-bill',
@@ -7,26 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./bill.component.scss']
 })
 export class BillComponent implements OnInit {
-  nodes = [
-    {
-      data: { id: 41, name: "Phillipp O'Neill", date: 1698674483000, isMainMenu: true, isPaid: true },
-      children: [
-        {
-          data: { id: 42, name: "Child 1", date: 1698674483000, time: "Night" }
-        },
-        {
-          data: { id: 43, name: "Child 2", date: 1698674483000, time: "Noon" }
-        }
-      ]
-    },
-    {
-      data: { id: 44, name: "Another Parent", date: 1698674483000, isMainMenu: true, isPaid: false },
-      children: [
-        {
-          data: { id: 45, name: "Child 3", date: 1698674483000, time: "Night" }
-        }
-      ]
-    }
+  filter: any = {};
+  first: number = 0;
+
+  rows: number = 10;
+
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+  }
+
+
+  bills = [
+    { id: 41, name: "Phillipp O'Neill", date: 1698674483000, isMainMenu: true, isPaid: true },
+    { id: 44, name: "Another Parent", date: 1698674483000, isMainMenu: true, isPaid: false },
   ];
 
   actions: any = [

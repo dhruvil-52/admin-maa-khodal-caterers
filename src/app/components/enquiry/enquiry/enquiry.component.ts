@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnquiryComponent implements OnInit {
   enquiries: any = [];
+  filter: any = {};
+  first: number = 0;
+
+  rows: number = 10;
+
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+  }
 
   constructor() { }
 

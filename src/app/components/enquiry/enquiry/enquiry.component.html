@@ -8,7 +8,7 @@
   </div>
   <div class="row">
     <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
-      <p-table [value]="enquiries">
+      <p-table [value]="enquiries" [scrollable]="true">
         <ng-template pTemplate="header">
           <tr>
             <th>Index</th>
@@ -32,6 +32,19 @@
           </tr>
         </ng-template>
       </p-table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="120"
+        [showFirstLastIcon]="false"
+      >
+      </p-paginator>
     </div>
   </div>
 </div>

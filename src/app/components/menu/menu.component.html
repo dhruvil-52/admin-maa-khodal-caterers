@@ -80,6 +80,19 @@
       </p-treeTable>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+      <div class="flex justify-content-center">
+        <p-paginator
+          (onPageChange)="onPageChange($event)"
+          [first]="first"
+          [rows]="rows"
+          [totalRecords]="120"
+          [showFirstLastIcon]="false"
+        ></p-paginator>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="flex justify-content-center">

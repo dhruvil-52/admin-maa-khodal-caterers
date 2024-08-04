@@ -26,15 +26,13 @@ show enquiry in list
 on get enquiry send notification by one signal
 
 <!-- LAST -->
+filter in bill and menu
+keyword search, pagination, page dropdown
+header logout option and loggedin User name
+
 
 dashboard for showing income, bill, order charts
 logo // after backend done
 upload event images // after backend done
-header logout option and loggedin User name
 chips bug in mobile device
 one signal, send notification from backend
-
-<!-- GOPI -->
-
-filter in bill and menu
-keyword search, pagination, page dropdown

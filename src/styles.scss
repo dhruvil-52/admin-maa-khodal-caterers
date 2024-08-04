@@ -37,7 +37,8 @@ html {
 }
 
 .text-container {
-    max-width: 20rem;
+    max-width: max(20rem, 40vw);
+    min-width: min(20rem, 40vw);
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -47,4 +48,12 @@ html {
     padding: 1em !important;
     margin: 0.5em !important;
     font-size: 1rem !important;
+}
+
+.new-section {
+    margin-top: 5rem;
+}
+
+.container {
+    margin-bottom: 5rem;
 }

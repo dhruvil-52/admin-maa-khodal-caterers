@@ -12,6 +12,7 @@ import { MenuComponent } from './menu.component';
 import { AddEditMenuComponent } from './add-edit-menu/add-edit-menu.component';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ChipsModule } from 'primeng/chips';
     FormsModule,
     ChipModule,
     CalendarModule,
-    ChipsModule
+    ChipsModule,
+    PaginatorModule
   ]
 })
 export class _MenuModule { }

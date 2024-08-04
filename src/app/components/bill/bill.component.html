@@ -15,12 +15,7 @@
   </div>
   <div class="row">
     <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
-      <p-treeTable
-        [value]="nodes"
-        [scrollable]="true"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        [styleClass]="'p-treetable-sm'"
-      >
+      <p-table [value]="bills" [scrollable]="true">
         <ng-template pTemplate="header">
           <tr>
             <th>Index</th>
@@ -32,32 +27,29 @@
             <th>Action</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
-          <tr [ttRow]="rowNode">
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>#{{ product.menuId }}</td>
+            <td>{{ product.name }}</td>
             <td>
-              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
-              {{ rowData.id }}
-            </td>
-            <td>#{{ rowData.menuId }}</td>
-            <td>{{ rowData.name }}</td>
-            <td>
-              {{ rowData.date | date : "dd MMM yyyy" }}
-              <span *ngIf="rowData.time"> ({{ rowData.time }}) </span>
+              {{ product.date | date : "dd MMM yyyy" }}
+              <span *ngIf="product.time"> ({{ product.time }}) </span>
             </td>
             <td>
-              {{ rowData.mobile }}
-              <span *ngIf="rowData.mobile2">
-                {{ rowData.mobile2 }}
+              {{ product.mobile }}
+              <span *ngIf="product.mobile2">
+                {{ product.mobile2 }}
               </span>
             </td>
             <td>
               <button
                 type="button"
                 class="btn btn-sm btn btn-success"
-                [ngClass]="{ 'btn-danger': !rowData.isPaid }"
-                (click)="paymentPaid(rowData)"
+                [ngClass]="{ 'btn-danger': !product.isPaid }"
+                (click)="paymentPaid(product)"
               >
-                {{ rowData.isPaid ? "Paid" : "Not Paid" }}
+                {{ product.isPaid ? "Paid" : "Not Paid" }}
               </button>
             </td>
             <td>
@@ -72,14 +64,27 @@
               <button
                 type="button"
                 class="btn btn-sm btn-outline-primary"
-                (click)="selectedItem = rowData; menu.toggle($event)"
+                (click)="selectedItem = product; menu.toggle($event)"
               >
                 <i class="bi bi-three-dots-vertical"></i>
               </button>
             </td>
           </tr>
         </ng-template>
-      </p-treeTable>
+      </p-table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="120"
+        [showFirstLastIcon]="false"
+      >
+      </p-paginator>
     </div>
   </div>
 </div>

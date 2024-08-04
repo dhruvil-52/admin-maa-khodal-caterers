@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { BillRoutingModule } from './bill-routing.module';
-import { BillComponent } from './bill.component';
-import { TreeTableModule } from 'primeng/treetable';
 import { DialogModule } from 'primeng/dialog';
 import { MenuModule } from 'primeng/menu';
-import { AddEditBillComponent } from './add-edit-bill/add-edit-bill.component';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
 import { DropdownModule } from 'primeng/dropdown';
+import { PaginatorModule } from 'primeng/paginator';
+import { TableModule } from 'primeng/table';
+
+import { BillRoutingModule } from './bill-routing.module';
+import { BillComponent } from './bill.component';
+import { AddEditBillComponent } from './add-edit-bill/add-edit-bill.component';
 
 
 @NgModule({
@@ -25,7 +27,6 @@ import { DropdownModule } from 'primeng/dropdown';
     CommonModule,
     BillRoutingModule,
     FormsModule,
-    TreeTableModule,
     DialogModule,
     MenuModule,
     ToggleButtonModule,
@@ -34,6 +35,8 @@ import { DropdownModule } from 'primeng/dropdown';
     CalendarModule,
     ChipsModule,
     DropdownModule,
+    PaginatorModule,
+    TableModule
   ]
 })
 export class BillModule { }

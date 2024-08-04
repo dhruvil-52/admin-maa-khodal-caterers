@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { EnquiryRoutingModule } from './enquiry-routing.module';
 import { EnquiryComponent } from './enquiry/enquiry.component';
 import { TableModule } from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { TableModule } from 'primeng/table';
   imports: [
     CommonModule,
     EnquiryRoutingModule,
-    TableModule
+    TableModule,
+    PaginatorModule,
+    CalendarModule
   ]
 })
 export class EnquiryModule { }
