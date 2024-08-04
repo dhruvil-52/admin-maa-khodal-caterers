@@ -210,13 +210,14 @@
                 <div class="form-group">
                   <div class="p-fluid">
                     <div class="flex flex-column gap-2">
-                      <label for="{{ category.name }}">{{
-                        category.name
-                      }}</label>
+                      <label for="{{ category.name }}">
+                        Enter Items of {{ category.name }}
+                      </label>
                       <p-chips
                         [(ngModel)]="category.items"
                         id="{{ category.name }}"
                         name="{{ category.name }}"
+                        placeholder="Enter Items of {{ category.name }}"
                         separator=","
                         [addOnBlur]="true"
                         focusReenter
@@ -238,6 +239,7 @@
                       [(ngModel)]="userDetails.services"
                       id="services"
                       name="services"
+                      placeholder="Services"
                       separator=","
                       [addOnBlur]="true"
                       focusReenter
