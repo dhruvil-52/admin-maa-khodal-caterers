@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './containers/header/header.component';
 import { FooterComponent } from './containers/footer/footer.component';
 import { MainComponent } from './containers/main/main.component';
+import { OneSignalService } from './shared/one-signal.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { MainComponent } from './containers/main/main.component';
     NgbModule,
     NgbCollapseModule
   ],
-  providers: [],
+  providers: [OneSignalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -32,6 +32,7 @@ logo // after backend done
 upload event images // after backend done
 header logout option and loggedin User name
 chips bug in mobile device
+one signal, send notification from backend
 
 <!-- GOPI -->
 

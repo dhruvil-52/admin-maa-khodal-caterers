@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OneSignalService } from './shared/one-signal.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'admin-maa-khodal';
 
-  constructor() { }
+  constructor(private oneSignalService: OneSignalService) {
+    this.oneSignalService.oneSignalSetup();
+  }
 
   ngOnInit(): void {
   }
