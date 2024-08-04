@@ -16,7 +16,7 @@
             class="form-control"
             id="name"
             placeholder="Enter Name"
-            [(ngModel)]="menuDetails.name"
+            [(ngModel)]="menuDetails.data.name"
             name="name"
           />
         </div>
@@ -32,8 +32,8 @@
             class="form-control"
             id="mobile"
             placeholder="Enter Primary Mobile"
-            [(ngModel)]="menuDetails.mobile"
-            name="fullName"
+            [(ngModel)]="menuDetails.data.mobile"
+            name="mobile"
           />
         </div>
       </div>
@@ -45,8 +45,8 @@
             class="form-control"
             id="mobile2"
             placeholder="Enter Secondary Mobile"
-            [(ngModel)]="menuDetails.mobile2"
-            name="fullName"
+            [(ngModel)]="menuDetails.data.mobile2"
+            name="mobile2"
           />
         </div>
       </div>
@@ -60,7 +60,7 @@
             class="form-control"
             id="address"
             placeholder="Enter Address"
-            [(ngModel)]="menuDetails.address"
+            [(ngModel)]="menuDetails.data.address"
             name="address"
             rows="2"
           ></textarea>
@@ -102,10 +102,10 @@
                     <p-calendar
                       [(ngModel)]="menu.date"
                       [showButtonBar]="true"
+                      placeholder="Select Date"
                       id="date{{ i }}"
                       name="date{{ i }}"
-                      [style.width.px]="250"
-                      [style.fontSize.px]="14"
+                      [dateFormat]="'dd/mm/yy'"
                     ></p-calendar>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-24 col-md-24 col-lg-6 col-xl-6 col-xxl-6">
+          <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
             <div class="form-group">
               <div class="p-fluid">
                 <div class="flex flex-column gap-2">
@@ -160,6 +160,21 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="row right-align">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <button
+          type="submit"
+          class="btn btn-outline-primary mr-2"
+          (click)="submitDetails()"
+        >
+          Save
+        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="reset()">
+          Reset
+        </button>
       </div>
     </div>
   </form>

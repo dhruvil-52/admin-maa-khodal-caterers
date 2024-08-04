@@ -11,6 +11,7 @@ import { MenuRoutingModule } from './menu-routing.module';
 import { MenuComponent } from './menu.component';
 import { AddEditMenuComponent } from './add-edit-menu/add-edit-menu.component';
 import { CalendarModule } from 'primeng/calendar';
+import { ChipsModule } from 'primeng/chips';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CalendarModule } from 'primeng/calendar';
     DialogModule,
     FormsModule,
     ChipModule,
-    CalendarModule
+    CalendarModule,
+    ChipsModule
   ]
 })
 export class _MenuModule { }
