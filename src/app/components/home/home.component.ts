@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
 
   submitDetails() {
     // API Call
+    console.log(JSON.stringify(this.userDetails))
   }
 
   onChipAdd(event: any) {
