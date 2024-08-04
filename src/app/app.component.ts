@@ -9,16 +9,9 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'admin-maa-khodal';
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.checkLoginStatus();
   }
 
-  checkLoginStatus() {
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-      this.router.navigate(['/login']);
-    }
-  }
 }

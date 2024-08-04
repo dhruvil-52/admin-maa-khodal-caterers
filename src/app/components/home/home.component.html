@@ -192,6 +192,7 @@
                       placeholder="Categories"
                       (onAdd)="onChipAdd($event)"
                       (onRemove)="onChipRemove($event)"
+                      separator=","
                     ></p-chips>
                   </div>
                 </div>
@@ -213,6 +214,7 @@
                         [(ngModel)]="category.items"
                         id="{{ category.name }}"
                         name="{{ category.name }}"
+                        separator=","
                       ></p-chips>
                     </div>
                   </div>
@@ -230,6 +232,7 @@
                       [(ngModel)]="userDetails.services"
                       id="services"
                       name="services"
+                      separator=","
                     ></p-chips>
                   </div>
                 </div>
