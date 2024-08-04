@@ -36,7 +36,8 @@ const routes: Routes = [
     component: MainComponent,
     canLoad: [CanLoadGuard],
     loadChildren: () => import('./components/bill/bill.module').then((m) => m.BillModule)
-  }
+  },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
