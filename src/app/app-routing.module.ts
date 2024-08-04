@@ -37,6 +37,12 @@ const routes: Routes = [
     canLoad: [CanLoadGuard],
     loadChildren: () => import('./components/bill/bill.module').then((m) => m.BillModule)
   },
+  {
+    path: 'enquiry',
+    component: MainComponent,
+    canLoad: [CanLoadGuard],
+    loadChildren: () => import('./components/enquiry/enquiry.module').then((m) => m.EnquiryModule)
+  },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
