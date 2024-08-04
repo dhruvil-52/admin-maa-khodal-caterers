@@ -93,19 +93,28 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+          <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
             <div class="form-group">
-              <label for="date{{ i }}">Date</label>
-              <input
-                type="text"
-                class="form-control"
-                id="date"
-                placeholder="Enter Primary Mobile"
-                [(ngModel)]="menu.date"
-                name="date"
-              />
+              <div class="p-fluid">
+                <div class="flex flex-column gap-2">
+                  <label for="date{{ i }}">Date</label>
+                  <div class="flex justify-content-center">
+                    <p-calendar
+                      [(ngModel)]="menu.date"
+                      [showButtonBar]="true"
+                      id="date{{ i }}"
+                      name="date{{ i }}"
+                      [style.width.px]="250"
+                      [style.fontSize.px]="14"
+                    ></p-calendar>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
             <div class="form-group">
               <label for="time{{ i }}">Time</label>
@@ -119,9 +128,6 @@
               />
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
             <div class="form-group">
               <label for="price{{ i }}">Price</label>
@@ -147,6 +153,7 @@
                     [(ngModel)]="menu.items"
                     id="item{{ i }}"
                     name="item{{ i }}"
+                    separator=","
                   ></p-chips>
                 </div>
               </div>
