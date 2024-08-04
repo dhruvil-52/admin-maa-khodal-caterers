@@ -29,6 +29,7 @@
             <th>Price</th>
             <th>Mobile</th>
             <th>Adress</th>
+            <th>Bill Generated</th>
             <th>Action</th>
           </tr>
         </ng-template>
@@ -54,6 +55,7 @@
               </span>
             </td>
             <td>{{ rowData.address }}</td>
+            <td>{{ rowData.isBillGenerated }}</td>
             <td>
               <p-menu
                 #menu

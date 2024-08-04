@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EnquiryRoutingModule } from './enquiry-routing.module';
 import { EnquiryComponent } from './enquiry/enquiry.component';
-
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { EnquiryComponent } from './enquiry/enquiry.component';
   ],
   imports: [
     CommonModule,
-    EnquiryRoutingModule
+    EnquiryRoutingModule,
+    TableModule
   ]
 })
 export class EnquiryModule { }

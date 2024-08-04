@@ -106,6 +106,7 @@ export class MenuComponent implements OnInit {
   printMenu() {
     console.log(this.selectedItem);
   }
+
   makeBillFromMenu() {
     console.log(this.selectedItem);
   }

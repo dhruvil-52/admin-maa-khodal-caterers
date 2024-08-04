@@ -1,0 +1,231 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="pageHeader">
+          <h1>{{ id ? "Edit Bill" : "Add Bill" }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <div class="p-fluid">
+            <div class="flex flex-column gap-2">
+              <label for="menu"> Menu </label>
+              <p-dropdown
+                id="menu"
+                name="menu"
+                [options]="menus"
+                [(ngModel)]="billDetails.data.menuId"
+                optionLabel="name"
+                optionValue="id"
+                [showClear]="true"
+                placeholder="Make Bill From Menu"
+                (onChange)="onMenuSelected($event)"
+              >
+                <ng-template let-selectedOption pTemplate="selectedItem">
+                  <div class="option-item option-item-value">
+                    {{ selectedOption.name }} ({{
+                      selectedOption.date | date : "dd MMM yyyy"
+                    }})
+                  </div>
+                </ng-template>
+                <ng-template let-option pTemplate="item">
+                  <div class="option-item">
+                    {{ option.name }} ({{ option.date | date : "dd MMM yyyy" }})
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+            [(ngModel)]="billDetails.data.name"
+            name="name"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-24 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mobile"
+            placeholder="Enter Primary Mobile"
+            [(ngModel)]="billDetails.data.mobile"
+            name="mobile"
+          />
+        </div>
+      </div>
+      <div class="col-sm-24 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="form-group">
+          <label for="mobile2">.</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mobile2"
+            placeholder="Enter Secondary Mobile"
+            [(ngModel)]="billDetails.data.mobile2"
+            name="mobile2"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            class="form-control"
+            id="address"
+            placeholder="Enter Address"
+            [(ngModel)]="billDetails.data.address"
+            name="address"
+            rows="2"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngFor="let menu of billDetails.menu; let i = index">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <hr />
+
+        <div class="row right-align">
+          <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-primary mr-2"
+              (click)="removeMenu(i)"
+              *ngIf="billDetails.menu.length !== 1"
+            >
+              <i class="bi bi-dash"></i>
+            </button>
+            <button
+              type="submit"
+              class="btn btn-sm btn-outline-primary"
+              (click)="addMenu()"
+            >
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <div class="p-fluid">
+                <div class="flex flex-column gap-2">
+                  <label for="date{{ i }}">Date</label>
+                  <div class="flex justify-content-center">
+                    <p-calendar
+                      [(ngModel)]="menu.date"
+                      [showButtonBar]="true"
+                      placeholder="Select Date"
+                      id="date{{ i }}"
+                      name="date{{ i }}"
+                      [dateFormat]="'dd/mm/yy'"
+                    ></p-calendar>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="noOfDish{{ i }}">No of Dishes</label>
+              <input
+                type="number"
+                class="form-control"
+                id="noOfDish{{ i }}"
+                placeholder="Enter No of Dishes"
+                [(ngModel)]="menu.noOfDish"
+                name="noOfDish{{ i }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="time{{ i }}">Time</label>
+              <input
+                type="text"
+                class="form-control"
+                id="time{{ i }}"
+                placeholder="Enter Time"
+                [(ngModel)]="menu.time"
+                name="time{{ i }}"
+              />
+            </div>
+          </div>
+          <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="form-group">
+              <label for="price{{ i }}">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price{{ i }}"
+                placeholder="Enter Price"
+                [(ngModel)]="menu.price"
+                name="price{{ i }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
+            <div class="form-group">
+              <div class="p-fluid">
+                <div class="flex flex-column gap-2">
+                  <label for="item{{ i }}">Items</label>
+                  <p-chips
+                    [(ngModel)]="menu.items"
+                    id="item{{ i }}"
+                    name="item{{ i }}"
+                    separator=","
+                  ></p-chips>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row right-align">
+      <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
+        <button
+          type="submit"
+          class="btn btn-outline-primary mr-2"
+          (click)="submitDetails()"
+        >
+          Save
+        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="reset()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

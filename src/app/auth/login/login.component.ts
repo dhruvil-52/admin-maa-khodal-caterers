@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     const token = 'your-auth-token';
     localStorage.setItem('authToken', token);
     // API Call
-    this.router.navigate(['/home'])
+    this.router.navigate(['/menu'])
 
   }
 

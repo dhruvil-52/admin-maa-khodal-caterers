@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'menu',
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path: 'details',
     component: MainComponent,
     canLoad: [CanLoadGuard],
     loadChildren: () => import('./components/home/home.module').then((m) => m.HomeModule)
@@ -43,7 +43,7 @@ const routes: Routes = [
     canLoad: [CanLoadGuard],
     loadChildren: () => import('./components/enquiry/enquiry.module').then((m) => m.EnquiryModule)
   },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }
+  { path: '**', redirectTo: 'menu', pathMatch: 'full' }
 ];
 
 @NgModule({
