@@ -195,6 +195,7 @@
                       separator=","
                       [addOnBlur]="true"
                       focusReenter
+                      (keydown)="onKeydown($event)"
                     ></p-chips>
                   </div>
                 </div>
@@ -219,6 +220,7 @@
                         separator=","
                         [addOnBlur]="true"
                         focusReenter
+                        (keydown)="onKeydown($event)"
                       ></p-chips>
                     </div>
                   </div>
@@ -239,6 +241,7 @@
                       separator=","
                       [addOnBlur]="true"
                       focusReenter
+                      (keydown)="utilityService.onKeydown($event)"
                     ></p-chips>
                   </div>
                 </div>

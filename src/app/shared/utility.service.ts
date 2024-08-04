@@ -12,4 +12,10 @@ export class UtilityService {
     data.splice(index, 1)
     return data;
   }
+
+  onKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === 'Tab') {
+      event.preventDefault();
+    }
+  }
 }

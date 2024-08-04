@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityService } from '../../shared/utility.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   userDetails: any = { categories: [] };
   categories: any;
-  constructor() { }
+
+  constructor(public utilityService: UtilityService) { }
 
   ngOnInit(): void {
     this.getDetails();
