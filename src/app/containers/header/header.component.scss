@@ -22,13 +22,20 @@
     width: max-content;
 }
 
-// .user:after {
-//     content: '';
-//     position: absolute;
-//     background-image: url('../../../assets/icons/user-2.png');
-//     background-size: cover;
-//     height: 2rem;
-//     width: 2rem;
-//     margin-left: 0.5rem;
-//     // right: 0;
-// }
+.dropdown-menu {
+    width: max-content;
+}
+
+.user-details {
+    border: 1px solid $secondary-color;
+    border-radius: 0.5rem;
+    margin-left: 2rem;
+    width: max-content;
+}
+
+@media (max-width: 576px) {
+    .user-details {
+        border: none;
+        margin-left: 0px;
+    }
+}

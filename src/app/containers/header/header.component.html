@@ -36,15 +36,15 @@
           >Enquiry</a
         >
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a
           class="nav-link"
           [routerLink]="['/dashboard']"
           routerLinkActive="active"
           >Dashboard</a
         >
-      </li>
-      <li class="nav-item active">
+      </li> -->
+      <li class="nav-item">
         <a
           class="nav-link"
           [routerLink]="['/details']"
@@ -52,6 +52,32 @@
           [routerLinkActiveOptions]="{ exact: true }"
           >Details</a
         >
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle user-details"
+          href="javascript:;"
+          id="navbarDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          (click)="isUserDetails = !isUserDetails"
+        >
+          {{ user.name }}
+        </a>
+        <div
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown"
+          style="right: 0; left: auto"
+          [ngbCollapse]="isUserDetails"
+        >
+          <a
+            class="dropdown-item"
+            [routerLink]="['/login']"
+            (click)="onLogout()"
+            >Logout</a
+          >
+        </div>
       </li>
     </ul>
   </div>

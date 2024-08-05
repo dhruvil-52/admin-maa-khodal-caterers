@@ -10,10 +10,15 @@ export class HeaderComponent implements OnInit {
     name: 'Dhruvil'
   }
   isCollapsed = true;
+  isUserDetails = true;
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  onLogout() {
+    localStorage.removeItem("authToken")
   }
 
 }
