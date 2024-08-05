@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { OneSignalService } from './shared/one-signal.service';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,14 @@ import { OneSignalService } from './shared/one-signal.service';
 export class AppComponent implements OnInit {
   title = 'admin-maa-khodal';
 
-  constructor(private oneSignalService: OneSignalService) {
+  constructor(
+    private oneSignalService: OneSignalService,
+    private auth: AuthService,
+  ) {
     this.oneSignalService.oneSignalSetup();
+    this.auth.setToken();
   }
 
   ngOnInit(): void {
   }
-
 }

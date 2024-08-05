@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './containers/main/main.component';
-import { CanLoadGuard } from './shared/gaurds/can-load.guard';
+import { CanLoadGuard } from './shared/can-load.guard';
 
 const routes: Routes = [
   {
