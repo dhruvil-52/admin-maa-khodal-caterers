@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
       <p-treeTable
-        [value]="menu"
+        [value]="menu.Data"
         [scrollable]="true"
         [tableStyle]="{ 'min-width': '50rem' }"
         [styleClass]="'p-treetable-sm'"
@@ -56,7 +56,18 @@
               </span>
             </td>
             <td>{{ rowData.address }}</td>
-            <td>{{ rowData.isBillGenerated }}</td>
+            <td>
+              <i
+                class="pi pi-check"
+                *ngIf="rowData.isBillGenerated == true"
+                style="color: green"
+              ></i>
+              <i
+                class="pi pi-times"
+                *ngIf="rowData.isBillGenerated == false"
+                style="color: red"
+              ></i>
+            </td>
             <td>
               {{ rowData.createdDate | date : "dd MMM yyyy" }}
             </td>
@@ -88,10 +99,10 @@
     <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
       <div class="flex justify-content-center">
         <p-paginator
-          (onPageChange)="onPageChange($event)"
-          [first]="first"
-          [rows]="rows"
-          [totalRecords]="120"
+          (onPageChange)="onPageChange()"
+          [first]="filter.pageNumber"
+          [rows]="filter.pageSize"
+          [totalRecords]="menu.totalCount"
           [showFirstLastIcon]="false"
         ></p-paginator>
       </div>

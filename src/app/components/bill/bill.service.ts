@@ -10,7 +10,7 @@ export class BillService {
 
   getAllBills(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('bill/getAll', reqData).subscribe((data) => {
+      this.api.post('bill/getAll', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {
@@ -22,7 +22,7 @@ export class BillService {
 
   getBillById(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('bill/getById', reqData).subscribe((data) => {
+      this.api.post('bill/getById', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {

@@ -10,7 +10,7 @@ export class HomeService {
 
   getDetails(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('getDetails', reqData).subscribe((data) => {
+      this.api.post('getDetails', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {

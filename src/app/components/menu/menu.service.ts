@@ -10,7 +10,7 @@ export class MenuService {
 
   getAllMenus(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('menu/getAll', reqData).subscribe((data) => {
+      this.api.post('menu/getAll', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {
@@ -23,7 +23,7 @@ export class MenuService {
 
   getMenuById(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('menu/getById', reqData).subscribe((data) => {
+      this.api.post('menu/getById', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {
@@ -57,9 +57,9 @@ export class MenuService {
     })
   }
 
-  deleteMenu(reqData = {}) {
+  deleteMenu(id = null) {
     return new Promise((resolve, reject) => {
-      this.api.post('menu/delete', reqData).subscribe((data) => {
+      this.api.post('menu/delete', { id: id }).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {
@@ -69,9 +69,9 @@ export class MenuService {
     })
   }
 
-  makeMenu(reqData = {}) {
+  makeBill(id = null) {
     return new Promise((resolve, reject) => {
-      this.api.post('bill/makeFromMenu', reqData).subscribe((data) => {
+      this.api.post('bill/makeFromMenu', { id: id }).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {
@@ -84,7 +84,7 @@ export class MenuService {
 
   getSubMenuById(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('menu/subMenu/getById', reqData).subscribe((data) => {
+      this.api.post('menu/subMenu/getById', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {

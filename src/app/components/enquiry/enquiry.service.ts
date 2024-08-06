@@ -10,7 +10,7 @@ export class EnquiryService {
 
   getAllEnquiries(reqData = {}) {
     return new Promise((resolve, reject) => {
-      this.api.get('enquiry/getAll', reqData).subscribe((data) => {
+      this.api.post('enquiry/getAll', reqData).subscribe((data) => {
         try {
           resolve(data)
         } catch (e) {

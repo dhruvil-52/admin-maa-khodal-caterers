@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PdfmakeService } from 'src/app/shared/pdfmake.service';
 import { MenuService } from './menu.service';
+import { toasterService } from '../../shared/toaster.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,10 +10,11 @@ import { MenuService } from './menu.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  filter: any = { pageNumber: 0, pageSize: 10, keyword: '', dateRange: null };
   selectedItem: any = {};
   showDeleteModal: boolean = false;
   actions: any = [];
-  menu: any = [];
+  menu: any = {};
 
   openMenu(rowData: any) {
     console.log(rowData)
@@ -60,14 +62,8 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  filter: any = {};
-  first: number = 0;
-
-  rows: number = 10;
-
-  onPageChange(event: any) {
-    this.first = event.first;
-    this.rows = event.rows;
+  onPageChange() {
+    this.getMenus();
   }
 
   isMainRow(rowNode: any): boolean {
@@ -77,34 +73,48 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     private pdfService: PdfmakeService,
-    private menuService: MenuService) { }
+    private menuService: MenuService,
+    private toasterService: toasterService) { }
 
   ngOnInit(): void {
     this.getMenus();
   }
 
   getMenus() {
-    this.menuService.getAllMenus().then((data: any) => {
-      this.menu = data.Data
+    this.menuService.getAllMenus(this.filter).then((data: any) => {
+      this.menu = data;
+    }).catch(e => {
+      console.log("Error", e);
+      this.toasterService.showError("Error while getting Menu");
     })
   }
 
   openDeleteModal() {
-    console.log(this.selectedItem);
     this.showDeleteModal = true;
   }
 
   onDeleteMenu() {
     this.showDeleteModal = false;
-    // API Call
+    this.menuService.deleteMenu(this.selectedItem.id).then((data: any) => {
+      this.toasterService.showSuccess('Menu Successfully Deleted')
+      this.getMenus();
+    }).catch(e => {
+      console.log("Error", e);
+      this.toasterService.showError("Error while Deleting Menu");
+    })
   }
 
   printMenu() {
-    console.log(this.selectedItem);
     this.pdfService.generatePdf();
   }
 
   makeBillFromMenu() {
-    console.log(this.selectedItem);
+    this.menuService.makeBill(this.selectedItem.id).then((data: any) => {
+      this.toasterService.showSuccess('Bill successfully Created from Menu')
+      this.getMenus();
+    }).catch(e => {
+      console.log("Error", e);
+      this.toasterService.showError("Error while Making Bill from Menu");
+    })
   }
 }
