@@ -16,6 +16,7 @@
             <th>Mobile</th>
             <th>Email</th>
             <th>Message</th>
+            <th>Enquiry Date</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -28,6 +29,9 @@
               <div class="text-container">
                 {{ product.message }}
               </div>
+            </td>
+            <td>
+              {{ product.createdDate | date : "dd MMM yyyy" }}
             </td>
           </tr>
         </ng-template>

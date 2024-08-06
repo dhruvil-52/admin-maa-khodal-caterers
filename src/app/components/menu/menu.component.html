@@ -30,6 +30,7 @@
             <th>Mobile</th>
             <th>Adress</th>
             <th>Bill Generated</th>
+            <th>Create Date</th>
             <th>Action</th>
           </tr>
         </ng-template>
@@ -56,6 +57,9 @@
             </td>
             <td>{{ rowData.address }}</td>
             <td>{{ rowData.isBillGenerated }}</td>
+            <td>
+              {{ rowData.createdDate | date : "dd MMM yyyy" }}
+            </td>
             <td>
               <p-menu
                 #menu

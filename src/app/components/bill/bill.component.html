@@ -24,6 +24,7 @@
             <th>Date</th>
             <th>Mobile</th>
             <th>Paid</th>
+            <th>Create Date</th>
             <th>Action</th>
           </tr>
         </ng-template>
@@ -51,6 +52,9 @@
               >
                 {{ product.isPaid ? "Paid" : "Not Paid" }}
               </button>
+            </td>
+            <td>
+              {{ product.createdDate | date : "dd MMM yyyy" }}
             </td>
             <td>
               <p-menu
