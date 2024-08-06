@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PdfmakeService } from 'src/app/shared/pdfmake.service';
+import { ControllerService } from 'src/app/shared/controller.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,27 +12,7 @@ export class MenuComponent implements OnInit {
   selectedItem: any = {};
   showDeleteModal: boolean = false;
   actions: any = [];
-  nodes = [
-    {
-      data: { id: 41, name: "Phillipp O'Neill", date: 1698674483000, isMainMenu: true },
-      children: [
-        {
-          data: { id: 42, name: "Child 1", date: 1698674483000, time: "Night" }
-        },
-        {
-          data: { id: 43, name: "Child 2", date: 1698674483000, time: "Noon" }
-        }
-      ]
-    },
-    {
-      data: { id: 44, name: "Another Parent", date: 1698674483000, isMainMenu: true },
-      children: [
-        {
-          data: { id: 45, name: "Child 3", date: 1698674483000, time: "Night" }
-        }
-      ]
-    }
-  ];
+  menu: any = [];
 
   openMenu(rowData: any) {
     console.log(rowData)
@@ -95,14 +76,17 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private pdfService: PdfmakeService) { }
+    private pdfService: PdfmakeService,
+    private cs: ControllerService) { }
 
   ngOnInit(): void {
     this.getMenus();
   }
 
   getMenus() {
-    // API Call
+    this.cs.getAllMenus().then((data: any) => {
+      this.menu = data.Data
+    })
   }
 
   openDeleteModal() {

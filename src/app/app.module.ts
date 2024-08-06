@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,7 +37,8 @@ import { AuthInterceptor } from './shared/auth-interceptor.service';
     ToastModule,
     NgxSpinnerModule,
     RippleModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
   ],
   providers: [
     OneSignalService,
