@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PdfmakeService } from 'src/app/shared/pdfmake.service';
-import { ControllerService } from 'src/app/shared/controller.service';
+import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -77,14 +77,14 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     private pdfService: PdfmakeService,
-    private cs: ControllerService) { }
+    private menuService: MenuService) { }
 
   ngOnInit(): void {
     this.getMenus();
   }
 
   getMenus() {
-    this.cs.getAllMenus().then((data: any) => {
+    this.menuService.getAllMenus().then((data: any) => {
       this.menu = data.Data
     })
   }
