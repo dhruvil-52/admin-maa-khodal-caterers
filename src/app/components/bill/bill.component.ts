@@ -75,8 +75,7 @@ export class BillComponent implements OnInit {
   }
 
   paymentPaid(rowData: any) {
-    console.log(rowData)
-    this.billService.paidBill(this.selectedItem.id).then((data: any) => {
+    this.billService.paidBill(rowData.id).then((data: any) => {
       if (data.success) {
         this.toasterService.showSuccess(rowData.isPaid ? 'Mark Bill as Unpaid' : 'Mark Bill as Paid')
         this.getBills();

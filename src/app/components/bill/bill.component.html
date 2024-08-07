@@ -15,7 +15,11 @@
   </div>
   <div class="row">
     <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
-      <p-table [value]="bills.Data" [scrollable]="true">
+      <p-table
+        [value]="bills.Data"
+        [scrollable]="true"
+        [styleClass]="'p-treetable-sm'"
+      >
         <ng-template pTemplate="header">
           <tr>
             <th>Index</th>
@@ -35,13 +39,12 @@
             <td>{{ product.name }}</td>
             <td>
               {{ product.date | date : "dd MMM yyyy" }}
-              <span *ngIf="product.time"> ({{ product.time }}) </span>
             </td>
-            <td>
-              {{ product.mobile }}
-              <span *ngIf="product.mobile2">
+            <td class="custom-flex-column">
+              <div>{{ product.mobile }}</div>
+              <div *ngIf="product.mobile2">
                 {{ product.mobile2 }}
-              </span>
+              </div>
             </td>
             <td>
               <button
