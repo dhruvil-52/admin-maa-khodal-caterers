@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from 'src/app/shared/api.service';
+import { toasterService } from 'src/app/shared/toaster.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BillService {
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,
+    private toasterService: toasterService) { }
 
   getAllBills(reqData = {}) {
     return new Promise((resolve, reject) => {
       this.api.post('bill/getAll', reqData).subscribe((data) => {
-        try {
-          resolve(data)
-        } catch (e) {
-          reject(e);
-        }
+        resolve(data)
+      }, e => {
+        console.log(e)
+        this.toasterService.showError(e.error.data)
       })
     })
   }
 
-  getBillById(reqData = {}) {
+  getBillById(id = null) {
     return new Promise((resolve, reject) => {
-      this.api.post('bill/getById', reqData).subscribe((data) => {
-        try {
-          resolve(data)
-        } catch (e) {
-          reject(e);
-        }
+      this.api.post('bill/getById', { id: id }).subscribe((data) => {
+        resolve(data)
+      }, e => {
+        console.log(e)
+        this.toasterService.showError(e.error.data)
       })
     })
   }
@@ -35,11 +36,10 @@ export class BillService {
   addBill(reqData = {}) {
     return new Promise((resolve, reject) => {
       this.api.post('bill/add', reqData).subscribe((data) => {
-        try {
-          resolve(data)
-        } catch (e) {
-          reject(e);
-        }
+        resolve(data)
+      }, e => {
+        console.log(e)
+        this.toasterService.showError(e.error.data)
       })
     })
   }
@@ -47,35 +47,32 @@ export class BillService {
   editBill(reqData = {}) {
     return new Promise((resolve, reject) => {
       this.api.post('bill/edit', reqData).subscribe((data) => {
-        try {
-          resolve(data)
-        } catch (e) {
-          reject(e);
-        }
+        resolve(data)
+      }, e => {
+        console.log(e)
+        this.toasterService.showError(e.error.data)
       })
     })
   }
 
-  deleteBill(reqData = {}) {
+  deleteBill(id = null) {
     return new Promise((resolve, reject) => {
-      this.api.post('bill/delete', reqData).subscribe((data) => {
-        try {
-          resolve(data)
-        } catch (e) {
-          reject(e);
-        }
+      this.api.post('bill/delete', { id: id }).subscribe((data) => {
+        resolve(data)
+      }, e => {
+        console.log(e)
+        this.toasterService.showError(e.error.data)
       })
     })
   }
 
-  paidBill(reqData = {}) {
+  paidBill(id = null) {
     return new Promise((resolve, reject) => {
-      this.api.post('bill/paid', reqData).subscribe((data) => {
-        try {
-          resolve(data)
-        } catch (e) {
-          reject(e);
-        }
+      this.api.post('bill/paid', { id: id }).subscribe((data) => {
+        resolve(data)
+      }, e => {
+        console.log(e)
+        this.toasterService.showError(e.error.data)
       })
     })
   }

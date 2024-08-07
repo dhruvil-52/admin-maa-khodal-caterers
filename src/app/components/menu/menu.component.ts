@@ -82,7 +82,9 @@ export class MenuComponent implements OnInit {
 
   getMenus() {
     this.menuService.getAllMenus(this.filter).then((data: any) => {
-      this.menu = data;
+      if (data.success) {
+        this.menu = data;
+      }
     })
   }
 
@@ -93,8 +95,10 @@ export class MenuComponent implements OnInit {
   onDeleteMenu() {
     this.showDeleteModal = false;
     this.menuService.deleteMenu(this.selectedItem.id).then((data: any) => {
-      this.toasterService.showSuccess('Menu Successfully Deleted')
-      this.getMenus();
+      if (data.success) {
+        this.toasterService.showSuccess('Menu Successfully Deleted')
+        this.getMenus();
+      }
     })
   }
 
@@ -104,8 +108,10 @@ export class MenuComponent implements OnInit {
 
   makeBillFromMenu() {
     this.menuService.makeBill(this.selectedItem.id).then((data: any) => {
-      this.toasterService.showSuccess('Bill successfully Created from Menu')
-      this.getMenus();
+      if (data.success) {
+        this.toasterService.showSuccess('Bill successfully Created from Menu')
+        this.getMenus();
+      }
     })
   }
 }
