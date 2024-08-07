@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../../shared/utility.service';
+import { HomeService } from './home.service';
+import { toasterService } from 'src/app/shared/toaster.service';
 
 @Component({
   selector: 'app-home',
@@ -10,25 +12,37 @@ export class HomeComponent implements OnInit {
   userDetails: any = { categories: [] };
   categories: any;
 
-  constructor(public utilityService: UtilityService) { }
+  constructor(
+    public utilityService: UtilityService,
+    private homeService: HomeService,
+    private toasterService: toasterService
+  ) { }
 
   ngOnInit(): void {
     this.getDetails();
   }
 
   getDetails() {
-    // API Call
+    this.homeService.getDetails().then((data: any) => {
+      if (data.success) {
+        this.userDetails = data.Data;
+      } else {
+        this.userDetails = { categories: [] };
+      }
+    })
   }
-
 
   reset(): void {
     this.getDetails();
   }
 
-
   submitDetails() {
-    // API Call
-    console.log(JSON.stringify(this.userDetails))
+    console.log(JSON.stringify(this.userDetails));
+    this.homeService.submitDetails(this.userDetails).then((data: any) => {
+      if (data.success) {
+        this.toasterService.showSuccess("Successfully Details Edited");
+      }
+    })
   }
 
   onChipAdd(event: any) {
