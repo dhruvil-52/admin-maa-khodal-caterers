@@ -70,6 +70,9 @@ export class AddEditBillComponent implements OnInit {
     this.billService.getBillById(this.id).then((data: any) => {
       if (data.success) {
         this.billDetails = data.Data;
+        this.billDetails.menu.forEach((element: any) => {
+          element.date = new Date(element.date)
+        });
       } else {
         this.billDetails = {};
       }
@@ -81,7 +84,9 @@ export class AddEditBillComponent implements OnInit {
     if (index > -1) {
       console.log(this.menus[index])
       this.billDetails = this.menus[index];
-      this.billDetails.menu = this.billDetails.children;
+      this.billDetails.menu.forEach((element: any) => {
+        element.date = new Date(element.date)
+      });
     } else {
       this.billDetails = {};
       this.toasterService.showError('No Menu Details Found')
