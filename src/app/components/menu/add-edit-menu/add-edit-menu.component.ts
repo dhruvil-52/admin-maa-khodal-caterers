@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/utility.service';
 import { MenuService } from '../menu.service';
 import { toasterService } from 'src/app/shared/toaster.service';
@@ -19,6 +19,7 @@ export class AddEditMenuComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private utilityService: UtilityService,
     private menuService: MenuService,
     private toasterService: toasterService
@@ -48,11 +49,14 @@ export class AddEditMenuComponent implements OnInit {
 
   getMenuDetails() {
     this.menuService.getMenuById({ menuId: this.id }).then((data: any) => {
-      this.menuDetails = data.Data;
-    }).catch(e => {
-      this.menuDetails = {}
-      console.log("Error", e);
-      this.toasterService.showError("Error while Making Bill from Menu");
+      if (data.success) {
+        this.menuDetails = data.Data;
+        this.menuDetails.menu.forEach((element: any) => {
+          element.date = new Date(element.date)
+        });
+      } else {
+        this.menuDetails = { data: {}, menu: [new menu()] };
+      }
     })
   }
 
@@ -62,19 +66,17 @@ export class AddEditMenuComponent implements OnInit {
     if (this.id) {
       this.menuService.editMenu({ details: this.menuDetails }).then((data: any) => {
         this.toasterService.showSuccess("Successfully Menu Edited");
-      }).catch(e => {
-        this.menuDetails = {}
-        console.log("Error", e);
-        this.toasterService.showError("Error while Editing Menu");
+        this.goTomenu();
       })
     } else {
       this.menuService.addMenu({ details: this.menuDetails }).then((data: any) => {
         this.toasterService.showSuccess("Successfully Menu Added");
-      }).catch(e => {
-        this.menuDetails = {}
-        console.log("Error", e);
-        this.toasterService.showError("Error while Making Menu");
+        this.goTomenu();
       })
     }
+  }
+
+  goTomenu() {
+    this.router.navigate(['menu'])
   }
 }

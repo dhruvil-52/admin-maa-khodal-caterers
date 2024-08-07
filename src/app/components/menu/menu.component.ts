@@ -17,7 +17,6 @@ export class MenuComponent implements OnInit {
   menu: any = {};
 
   openMenu(rowData: any) {
-    console.log(rowData)
     this.actions = [];
     if (!!rowData.isMainMenu) {
       this.actions = [
@@ -62,7 +61,8 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  onPageChange() {
+  onPageChange(event: any) {
+    this.filter.pageNumber = event.page;
     this.getMenus();
   }
 
@@ -83,9 +83,6 @@ export class MenuComponent implements OnInit {
   getMenus() {
     this.menuService.getAllMenus(this.filter).then((data: any) => {
       this.menu = data;
-    }).catch(e => {
-      console.log("Error", e);
-      this.toasterService.showError("Error while getting Menu");
     })
   }
 
@@ -98,9 +95,6 @@ export class MenuComponent implements OnInit {
     this.menuService.deleteMenu(this.selectedItem.id).then((data: any) => {
       this.toasterService.showSuccess('Menu Successfully Deleted')
       this.getMenus();
-    }).catch(e => {
-      console.log("Error", e);
-      this.toasterService.showError("Error while Deleting Menu");
     })
   }
 
@@ -112,9 +106,6 @@ export class MenuComponent implements OnInit {
     this.menuService.makeBill(this.selectedItem.id).then((data: any) => {
       this.toasterService.showSuccess('Bill successfully Created from Menu')
       this.getMenus();
-    }).catch(e => {
-      console.log("Error", e);
-      this.toasterService.showError("Error while Making Bill from Menu");
     })
   }
 }

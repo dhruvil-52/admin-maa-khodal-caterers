@@ -68,7 +68,10 @@
       </div>
     </div>
 
-    <div class="row new-section" *ngFor="let menu of menuDetails.menu; let i = index">
+    <div
+      class="row new-section"
+      *ngFor="let menu of menuDetails.menu; let i = index"
+    >
       <div class="col-sm-24 col-md-24 col-lg-12 col-xl-12 col-xxl-12">
         <hr />
 
@@ -186,8 +189,20 @@
         >
           Save
         </button>
-        <button type="button" class="btn btn-outline-primary" (click)="reset()">
+        <button
+          type="button"
+          class="btn btn-outline-primary mr-2"
+          (click)="reset()"
+          *ngIf="id"
+        >
           Reset
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary mr-2"
+          (click)="goTomenu()"
+        >
+          Cancel
         </button>
       </div>
     </div>
