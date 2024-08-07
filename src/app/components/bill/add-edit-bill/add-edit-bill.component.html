@@ -17,7 +17,7 @@
               <p-dropdown
                 id="menu"
                 name="menu"
-                [options]="menus"
+                [options]="menulist"
                 [(ngModel)]="billDetails.data.menuId"
                 optionLabel="name"
                 optionValue="id"
@@ -225,8 +225,20 @@
         >
           Save
         </button>
-        <button type="button" class="btn btn-outline-primary" (click)="reset()">
+        <button
+          type="button"
+          class="btn btn-outline-primary mr-2"
+          (click)="reset()"
+          *ngIf="id"
+        >
           Reset
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary mr-2"
+          (click)="goTomenu()"
+        >
+          Cancel
         </button>
       </div>
     </div>

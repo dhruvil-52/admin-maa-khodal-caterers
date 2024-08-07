@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/utility.service';
+import { MenuService } from '../../menu/menu.service';
+import { toasterService } from '../../../shared/toaster.service';
+import { BillService } from '../bill.service';
 
 class menu {
   constructor(public date = '', public time = '', public price = 0, public items = []) {
@@ -16,24 +19,20 @@ export class AddEditBillComponent implements OnInit {
 
   billDetails: any = { data: {}, menu: [new menu()] };
   id: number;
-  menus = [
-    {
-      "name": "sanjaybhai talaviya",
-      "id": 1,
-      "date": new Date("2024-08-14T18:30:00.000Z")
-    },
-    {
-      "name": "dhruvil talaviya",
-      "id": 2,
-      "date": new Date("2024-08-14T18:30:00.000Z")
-    }
-  ];
+  menus = [];
+  menulist = [];
 
-  constructor(private route: ActivatedRoute,
-    private utilityService: UtilityService
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private utilityService: UtilityService,
+    private menuService: MenuService,
+    private billService: BillService,
+    private toasterService: toasterService
   ) { }
 
   ngOnInit(): void {
+    this.getAllMenus();
     this.route.params.subscribe((data) => {
       this.id = +data.id;
       console.log(this.id)
@@ -41,7 +40,6 @@ export class AddEditBillComponent implements OnInit {
     if (this.id) {
       this.getBillDetails();
     }
-    this.getAllMenus();
   }
 
   addMenu() {
@@ -57,48 +55,58 @@ export class AddEditBillComponent implements OnInit {
   }
 
   getAllMenus() {
-    // API call for get all menu items
-    // combine name and date
+    this.menuService.getAllMenus({ isBillGenerated: false }).then((data: any) => {
+      if (data.success) {
+        this.menulist = data.Data.map((e: any) => e.data);
+        this.menus = data.Data;
+      } else {
+        this.menulist = [];
+        this.menus = [];
+      }
+    })
   }
 
   getBillDetails() {
-    // API Call
-    this.billDetails = {
-      "menu": [
-        {
-          "date": new Date("2024-08-12T18:30:00.000Z"),
-          "time": "Noon",
-          "price": 120,
-          "items": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        },
-        {
-          "date": new Date("2024-08-13T18:30:00.000Z"),
-          "time": "night",
-          "price": 60,
-          "items": ["manchurian"]
-        },
-        {
-          "date": new Date("2024-08-14T18:30:00.000Z"),
-          "time": "Nasto",
-          "price": 60,
-          "items": ["jalebi fafda"]
-        }
-      ],
-      "data": {
-        "name": "dhruvil talaviya",
-        "mobile": 8460733333,
-        "address": "E-401 Shreeji Sankalp Flat,Opp meghmalhar flat,amar jawan circle ,nikol ,ahmedabad",
-        "mobile2": 8460723333
+    this.billService.getBillById(this.id).then((data: any) => {
+      if (data.success) {
+        this.billDetails = data.Data;
+      } else {
+        this.billDetails = {};
       }
-    }
+    })
   }
 
   onMenuSelected(event: any) {
-    // API call for getting menu by id
+    let index = this.menus.findIndex((e: any) => e.data.id, event.value)
+    if (index > -1) {
+      console.log(this.menus[index])
+      this.billDetails = this.menus[index];
+      this.billDetails.menu = this.billDetails.children;
+    } else {
+      this.billDetails = {};
+      this.toasterService.showError('No Menu Details Found')
+    }
   }
 
   submitDetails() {
-    // API Call
-    console.log(JSON.stringify(this.billDetails))
+    if (this.id) {
+      this.billService.editBill({ details: this.billDetails }).then((data: any) => {
+        if (data.success) {
+          this.toasterService.showSuccess("Successfully Bill Edited");
+          this.goTomenu();
+        }
+      })
+    } else {
+      this.billService.addBill({ details: this.billDetails }).then((data: any) => {
+        if (data.success) {
+          this.toasterService.showSuccess("Successfully Bill Added");
+          this.goTomenu();
+        }
+      })
+    }
+  }
+
+  goTomenu() {
+    this.router.navigate(['bill'])
   }
 }

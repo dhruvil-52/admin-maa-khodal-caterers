@@ -65,13 +65,17 @@ export class AddEditMenuComponent implements OnInit {
     console.log(JSON.stringify(this.menuDetails))
     if (this.id) {
       this.menuService.editMenu({ details: this.menuDetails }).then((data: any) => {
-        this.toasterService.showSuccess("Successfully Menu Edited");
-        this.goTomenu();
+        if (data.success) {
+          this.toasterService.showSuccess("Successfully Menu Edited");
+          this.goTomenu();
+        }
       })
     } else {
       this.menuService.addMenu({ details: this.menuDetails }).then((data: any) => {
-        this.toasterService.showSuccess("Successfully Menu Added");
-        this.goTomenu();
+        if (data.success) {
+          this.toasterService.showSuccess("Successfully Menu Added");
+          this.goTomenu();
+        }
       })
     }
   }

@@ -22,7 +22,7 @@ export class BillService {
     })
   }
 
-  getBillById(id = null) {
+  getBillById(id: any = null) {
     return new Promise((resolve, reject) => {
       this.api.post('bill/getById', { id: id }).subscribe((data) => {
         resolve(data)
