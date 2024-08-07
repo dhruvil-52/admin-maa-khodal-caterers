@@ -19,7 +19,7 @@ export class AuthService {
         resolve(data)
       }, e => {
         console.log(e)
-        this.toasterService.showError(e.error.data)
+        this.toasterService.showError(e.error.message)
       })
     })
   }
