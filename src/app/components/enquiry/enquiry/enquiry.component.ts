@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnquiryService } from '../enquiry.service';
 
 @Component({
   selector: 'app-enquiry',
@@ -6,42 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./enquiry.component.scss']
 })
 export class EnquiryComponent implements OnInit {
-  enquiries: any = [];
-  filter: any = {};
-  first: number = 0;
+  filter: any = { pageNumber: 0, pageSize: 10, keyword: '', dateRange: null };
+  enquiries: any = {};
 
-  rows: number = 10;
-
-  onPageChange(event: any) {
-    this.first = event.first;
-    this.rows = event.rows;
-  }
-
-  constructor() { }
+  constructor(private enquiryService: EnquiryService) { }
 
   ngOnInit(): void {
     this.getAllEnquiris();
   }
 
+  onPageChange(event: any) {
+    this.filter.pageNumber = event.page;
+    this.getAllEnquiris();
+  }
+
   getAllEnquiris() {
-    // API call
-    this.enquiries = [
-      {
-        id: '1',
-        name: 'Bamboo Watch',
-        mobile: 8460733333,
-        email: 'dhruvil@gmail.com',
-        message: 'This is a long piece of text that should wrap into multiple lines within the container. The container has a maximum width set, so the text will wrap when it reaches that width',
-      },
-      {
-        id: '2',
-        name: 'Bamboo Watch',
-      },
-      {
-        id: '3',
-        name: 'Bamboo Watch',
+    this.enquiryService.getAllEnquiries(this.filter).then((data: any) => {
+      if (data.success) {
+        this.enquiries = data;
+      } else {
+        this.enquiries = {};
       }
-    ]
+    })
   }
 
 }
