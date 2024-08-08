@@ -63,3 +63,11 @@ html {
     flex-direction: column;
     align-items: start !important;
 }
+
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}

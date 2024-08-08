@@ -13,6 +13,7 @@ import { AddEditMenuComponent } from './add-edit-menu/add-edit-menu.component';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { PaginatorModule } from 'primeng/paginator';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PaginatorModule } from 'primeng/paginator';
     ChipModule,
     CalendarModule,
     ChipsModule,
-    PaginatorModule
+    PaginatorModule,
+    InputTextModule
   ]
 })
 export class _MenuModule { }

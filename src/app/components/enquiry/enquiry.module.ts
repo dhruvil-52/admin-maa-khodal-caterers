@@ -6,6 +6,8 @@ import { EnquiryComponent } from './enquiry/enquiry.component';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { CalendarModule } from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CalendarModule } from 'primeng/calendar';
     EnquiryRoutingModule,
     TableModule,
     PaginatorModule,
-    CalendarModule
+    CalendarModule,
+    FormsModule,
+    InputTextModule
   ]
 })
 export class EnquiryModule { }

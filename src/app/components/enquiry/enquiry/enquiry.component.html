@@ -7,6 +7,25 @@
     </div>
   </div>
   <div class="row">
+    <div
+      class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24 filter-section"
+    >
+      <input
+        class="p-input"
+        type="text"
+        pInputText
+        [(ngModel)]="filter.keyword"
+        placeholder="Keyword"
+      />
+      <p-calendar
+        [(ngModel)]="filter.dateRange"
+        selectionMode="range"
+        [readonlyInput]="true"
+        placeholder="Date Range"
+      ></p-calendar>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 col-xxl-24">
       <p-table [value]="enquiries.Data" [scrollable]="true">
         <ng-template pTemplate="header">
