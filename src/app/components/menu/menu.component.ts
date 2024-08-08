@@ -103,7 +103,9 @@ export class MenuComponent implements OnInit {
   }
 
   printMenu() {
-    this.pdfService.generatePdf();
+    this.menuService.getMenuById({ menuId: this.selectedItem.id }).then((data: any) => {
+      this.pdfService.generatePdf(data.Data);
+    })
   }
 
   makeBillFromMenu() {

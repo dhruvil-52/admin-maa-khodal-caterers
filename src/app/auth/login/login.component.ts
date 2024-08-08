@@ -9,7 +9,10 @@ import { AuthService } from '../../shared/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user: any = {};
+  user: any = {
+    username: "dhruvil",
+    password: "dhruvil@0202",
+  };
 
   constructor(
     private router: Router,
