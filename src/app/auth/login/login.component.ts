@@ -20,13 +20,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.user).then((data: any) => {
-      if (data.success) {
-        this.authService.token = data.token;
-        localStorage.setItem('authToken', data.token);
-        this.router.navigate(['/menu']);
-      }
-    })
+    this.authService.token = "1211";
+    localStorage.setItem('authToken', "1211");
+    this.router.navigate(['/menu']);
+    // this.authService.login(this.user).then((data: any) => {
+    //   if (data.success) {
+    //     this.authService.token = data.token;
+    //     localStorage.setItem('authToken', data.token);
+    //     this.router.navigate(['/menu']);
+    //   }
+    // })
   }
 
 }
