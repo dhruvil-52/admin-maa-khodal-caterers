@@ -32,16 +32,10 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
 
-    let Token;
     let headers: any = {};
     headers = request.headers;
-    try {
-      Token = JSON.parse(this.auth.token);
-    } catch (e) {
-      Token = this.auth.token;
-    }
     request = request.clone({
-      headers: request.headers.append('Authorization', 'Bearer ' + Token)
+      headers: request.headers.append('Authorization', 'Bearer ' + this.auth.token)
     });
 
     this.count++;
